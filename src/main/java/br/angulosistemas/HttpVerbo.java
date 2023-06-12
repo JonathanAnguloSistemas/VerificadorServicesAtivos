@@ -1,4 +1,4 @@
-package br.com.angulosistemas.monitor.modelo;
+package br.angulosistemas;
 
 public enum HttpVerbo {
     METODO_GET      ("GET"),

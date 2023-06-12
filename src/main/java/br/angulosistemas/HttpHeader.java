@@ -1,4 +1,4 @@
-package br.com.angulosistemas.monitor.modelo;
+package br.angulosistemas;
 
 public enum HttpHeader {
     TEXT_PLAIN          ("text/plain"),

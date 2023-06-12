@@ -4,11 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84733e03-0a88-4288-aac7-3a0ce33cfea2" name="Changes" comment="" />
+    <list default="true" id="84733e03-0a88-4288-aac7-3a0ce33cfea2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/services/ThreadVerificadorServicos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpVerbo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpVerbo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/IViewConfiguracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/IViewConfiguracao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Util.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2QyFZ3txO9wiRWv7umDhVhEmn72" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -20,10 +41,38 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/User/Desktop/PROJETOS JAVA/ServicosAtivos/src/main/resources/imagens",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\PROJETOS JAVA\ServicosAtivos\src\main\resources\imagens" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\PROJETOS JAVA\ServicosAtivos\src\main\resources\imagens" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.angulosistemas" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="br.angulosistemas.Main" />
+      <module name="ServicosAtivos" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,7 +81,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686317967998</updated>
-      <workItem from="1686317969653" duration="4000" />
+      <workItem from="1686317969653" duration="21532000" />
+      <workItem from="1686567714106" duration="13784000" />
     </task>
     <servers />
   </component>
