@@ -5,6 +5,7 @@
 //import br.angulosistemas.HttpVerbo;
 //import br.angulosistemas.IViewConfiguracao;
 //
+//import javax.swing.*;
 //import javax.swing.table.DefaultTableModel;
 //import javax.swing.table.TableColumn;
 //import java.io.BufferedReader;
@@ -15,9 +16,23 @@
 //import java.nio.file.Paths;
 //import java.util.List;
 //
-//import static br.angulosistemas.view.ViewAplicacao.jTable1;
 //
 //public class ThreadVerificadorServicos implements Runnable {
+//
+//    private Comunica comunica;
+//
+//    private String resultadoResposta;
+//
+//    private String[] separadorVirgula;
+//
+//    private String ativo;
+//
+//    private JLabel label;
+//
+//    private Object texto;
+//
+//    private String serverHost;
+//
 //
 //    private final IViewConfiguracao iViewConfiguracao;
 //
@@ -43,7 +58,6 @@
 //    public void onIniciarVerificaoServicos() throws Exception{
 //
 //
-//        public void carregarServicosTela(){
 //
 //            if (comunica == null) comunica = new Comunica();
 //
@@ -136,7 +150,7 @@
 //                System.out.println("Não foi possivel ler o arquivo: " + e.getMessage() );
 //            }
 //
-//        }
+//
 //
 //
 //    }

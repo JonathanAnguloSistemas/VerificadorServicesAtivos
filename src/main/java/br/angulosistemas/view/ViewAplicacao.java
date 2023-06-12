@@ -4,16 +4,14 @@
  */
 package br.angulosistemas.view;
 
-import br.angulosistemas.Comunica;
-import br.angulosistemas.HttpHeader;
-import br.angulosistemas.HttpVerbo;
+import br.angulosistemas.*;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -26,9 +24,10 @@ import java.util.List;
  */
 
 
-public class ViewAplicacao extends javax.swing.JFrame    {
+public class ViewAplicacao extends javax.swing.JFrame implements IViewConfiguracao    {
 
     private Comunica comunica;
+
 
     private String resultadoResposta;
 
@@ -50,8 +49,6 @@ public class ViewAplicacao extends javax.swing.JFrame    {
 
         /* Adicionando eventos aos botoes da tela */
         btnVerificacao.addActionListener( e -> carregarServicosTela());
-
-
 
 //        addComponentListener(new ComponentListener() {
 //            @Override
@@ -79,36 +76,58 @@ public class ViewAplicacao extends javax.swing.JFrame    {
 
     }
 
+    public void escreverArquivo(){
+        String path = "C:\\visualfs\\verificadorservicos\\servicosAtivosTeste.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+            writer.write("Exemplo de conteúdo do arquivo de texto.");
+            writer.newLine();
+            writer.write("Linha 2");
+            writer.newLine();
+            writer.write("Linha 3");
+            writer.newLine();
+            // Adicione mais linhas conforme necessário
+
+            System.out.println("Arquivo de texto foi escrito com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void carregarServicosTela(){
 
         if (comunica == null) comunica = new Comunica();
 
         try {
+          //  iViewConfiguracao.atualizarProcessoAplicacao("Aplicacao Iniciada...");
+//            atualizarProcessoAplicacao("Aplicacao Iniciada...");
+//            Thread.sleep(1000);
 
-            String path = "C:\\servicosAtivosTeste.txt";
+            String path = "C:\\visualfs\\verificadorservicos\\servicosAtivosTeste.txt";
 
             List<String> arquivo;
 
             arquivo = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
 
-           // arquivo = (File) Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
-            System.out.println("arquivo: " + (arquivo.size() -1));
             int tamanhoArquivo = (arquivo.size());
-
 
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line = br.readLine();
 
-
+            atualizarProcessoAplicacao("Verificando o status dos serviços. Aguarde...");
+            Main.notificatTraycon("Verificando..","Verificando a conexão dos serviços. Aguarde...", TrayIcon.MessageType.INFO);
+            Thread.sleep(100);
             String linhaLida = "";
+            int servicosLidos = 0;
             while ( line != null ) {
-                linhaLida = line;
 
+
+
+                linhaLida = line;
                 separadorVirgula = linhaLida.split(",");
                 serverHost = "http://";
                 try {
                     resultadoResposta = comunica.callHttpGenerico(
-                            new URL(serverHost + separadorVirgula[1]),
+                            new URL(serverHost + separadorVirgula[1] ),
                             HttpVerbo.METODO_GET,
                             false,
                             true,
@@ -116,21 +135,20 @@ public class ViewAplicacao extends javax.swing.JFrame    {
                             HttpHeader.APPLICATION_JSON,
                             null,
                             null,
-                            15*1000,
-                            15*1000
+                            8*1000,
+                            8*1000
                     );
                       System.out.println( "Resultado da resposta: " + resultadoResposta);
 
-                    System.out.println( "é vazio? " + resultadoResposta.isEmpty() );
 
-                    if(resultadoResposta != null ){
-                        System.out.println("diferente de vazio!");
+
+
+                    if( resultadoResposta != null ){
                         ativo = "sim";
                     }
 
-
-
                 }
+
                 catch (Exception e){
                     ativo = "nao";
 
@@ -162,11 +180,12 @@ public class ViewAplicacao extends javax.swing.JFrame    {
                             }
                     );
 
-                System.out.println(linhaLida);
-
                 line = br.readLine();
+
+                servicosLidos++;
             }
 
+            Main.notificatTraycon("Serviços ","foi testado a conexão com " + servicosLidos + " serviços, sucesso" , TrayIcon.MessageType.INFO);
             corNaLinha();
 
         } catch (Exception e ) {
@@ -249,7 +268,8 @@ public class ViewAplicacao extends javax.swing.JFrame    {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnVerificacao.setText("Verificar Servicos");
+        btnVerificacao.setText("Verificar ");
+
         btnVerificacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerificacaoActionPerformed(evt);
@@ -262,19 +282,22 @@ public class ViewAplicacao extends javax.swing.JFrame    {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnVerificacao)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(btnVerificacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(btnVerificacao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnVerificacao)
+                        .addGap(207, 229, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -284,7 +307,7 @@ public class ViewAplicacao extends javax.swing.JFrame    {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,5 +364,10 @@ public class ViewAplicacao extends javax.swing.JFrame    {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+
+    @Override
+    public void atualizarProcessoAplicacao(String texto) {
+
+    }
     // End of variables declaration//GEN-END:variables
 }

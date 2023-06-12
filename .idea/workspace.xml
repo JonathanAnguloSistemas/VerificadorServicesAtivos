@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84733e03-0a88-4288-aac7-3a0ce33cfea2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/services/ThreadVerificadorServicos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpVerbo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/HttpVerbo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/IViewConfiguracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/IViewConfiguracao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/services/ThreadVerificadorServicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/services/ThreadVerificadorServicos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686317967998</updated>
       <workItem from="1686317969653" duration="21532000" />
-      <workItem from="1686567714106" duration="13784000" />
+      <workItem from="1686567714106" duration="20803000" />
     </task>
     <servers />
   </component>

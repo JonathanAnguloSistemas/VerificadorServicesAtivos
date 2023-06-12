@@ -13,6 +13,8 @@ import java.util.Objects;
 
 public class Main {
 
+
+
     private static TrayIcon trayIcon;
     public static void main(String[] args) {
 
@@ -27,14 +29,15 @@ public class Main {
 
         trayIcon = new TrayIcon( Objects.requireNonNull(Util.getImage("comparadorIcon.png",70,45)));
         trayIcon.setImageAutoSize(true);
+        atualizarTollTipTraycon("Verificador Servicos - Angulo Sistemas");
         SystemTray systemTray = SystemTray.getSystemTray();
+
 
         /*Criando os menus do Traycon da aplicação*/
         PopupMenu popupMenu = new PopupMenu();
-        MenuItem menuPrincipal = new MenuItem("Principal");
+
         MenuItem menuEncerrar = new MenuItem("Encerrar aplicacao");
 
-        popupMenu.add(menuPrincipal);
         popupMenu.add(menuEncerrar);
         trayIcon.setPopupMenu( popupMenu );
 
@@ -47,10 +50,21 @@ public class Main {
 
 
         trayIcon.addActionListener( e -> viewAplicacao.setVisible( true ) );
-        menuPrincipal.addActionListener( e -> viewAplicacao.setVisible( true ) );
+       // menuPrincipal.addActionListener( e -> viewAplicacao.setVisible( true ) );
         menuEncerrar.addActionListener( e -> System.exit( 0 ) );
+
+        notificatTraycon("Verificador Serviços", "Iniciando a aplicação", TrayIcon.MessageType.INFO);
 
         viewAplicacao.setVisible(true);
 
+    }
+
+
+    public static void atualizarTollTipTraycon(String mensagem){
+        trayIcon.setToolTip(mensagem);
+    }
+
+    public static synchronized void notificatTraycon(String titulo, String mensagem, TrayIcon.MessageType type){
+        trayIcon.displayMessage(titulo,mensagem,type );
     }
 }
