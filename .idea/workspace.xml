@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="VerificadorServicos:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84733e03-0a88-4288-aac7-3a0ce33cfea2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/VerificadorServicos_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" afterDir="false" />
     </list>
@@ -44,6 +53,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.16393441&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -61,7 +73,7 @@
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="br.angulosistemas.Main" />
-      <module name="ServicosAtivos" />
+      <module name="VerificadorServicos" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,7 +89,9 @@
       <updated>1686317967998</updated>
       <workItem from="1686317969653" duration="21532000" />
       <workItem from="1686567714106" duration="29016000" />
-      <workItem from="1686654668351" duration="995000" />
+      <workItem from="1686654668351" duration="14373000" />
+      <workItem from="1686674319127" duration="50000" />
+      <workItem from="1686674435572" duration="5871000" />
     </task>
     <servers />
   </component>

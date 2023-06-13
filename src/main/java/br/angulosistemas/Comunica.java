@@ -15,6 +15,9 @@ public class Comunica {
 
         private static final String TAG = Comunica.class.getName();
 
+        public static int codStatus;
+        public static String codStatusVerdadeiro;
+
         public Comunica() {
         }
 
@@ -72,10 +75,10 @@ public class Comunica {
             }
 
             if (hasInput) {
-                int codStatus = connection.getResponseCode();
-                System.out.println("Codigo de Resposta do Web Service: " + codStatus);
-              //  Util.info("Codigo de Resposta do Web Service: " + codStatus);
+                 codStatus = connection.getResponseCode();
 
+                 System.out.println("Codigo de Resposta do Web Servicess: " + codStatus);
+              //  Util.info("Codigo de Resposta do Web Service: " + codStatus);
                 BufferedReader bufferedReader;
 
                 if (codStatus > 204) {

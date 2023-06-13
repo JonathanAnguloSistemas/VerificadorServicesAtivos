@@ -45,35 +45,10 @@ public class ViewAplicacao extends javax.swing.JFrame     {
      */
     public ViewAplicacao() {
         initComponents();
-
+        setLocationRelativeTo( null );
         setIconImage(Util.getImage("bing.png",155,140));
         /* Adicionando eventos aos botoes da tela */
         btnVerificacao.addActionListener( e -> carregarServicosTela());
-
-
-//        addComponentListener(new ComponentListener() {
-//            @Override
-//            public void componentResized(ComponentEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void componentMoved(ComponentEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void componentShown(ComponentEvent e) {
-//                carregarServicosTela();
-//                corNaLinha();
-//
-//            }
-//
-//            @Override
-//            public void componentHidden(ComponentEvent e) {
-//
-//            }
-//        });
 
     }
 
@@ -83,8 +58,7 @@ public class ViewAplicacao extends javax.swing.JFrame     {
 
         try {
 
-
-            String path = "C:\\visualfs\\verificadorservicos\\servicosAtivosTeste.txt";
+            String path = "C:\\visualfs\\verificadorservicos\\servicosAtivoss.txt";
 
             List<String> arquivo;
 
@@ -102,11 +76,23 @@ public class ViewAplicacao extends javax.swing.JFrame     {
             int servicosLidos = 0;
             while ( line != null ) {
 
-
-
                 linhaLida = line;
                 separadorVirgula = linhaLida.split(",");
+
+//                if ( separadorVirgula[0].contains( "Tray" ) ) {
+//                     serverHost = "https://";
+//                } else {
+//                }
+
+//                // Cria um SSLContext com um TrustManager que não realiza verificação
+//                SSLContext sslContext = SSLContext.getInstance("TLS");
+//                sslContext.init(null, new TrustManager[]{new TrustAllManager()}, new SecureRandom());
+//
+//                // Configura a conexão HTTPS para usar o SSLContext com a verificação desabilitada
+//                HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+
                 serverHost = "http://";
+
                 try {
                     resultadoResposta = comunica.callHttpGenerico(
                             new URL(serverHost + separadorVirgula[1] ),
@@ -120,19 +106,23 @@ public class ViewAplicacao extends javax.swing.JFrame     {
                             8*1000,
                             8*1000
                     );
-                      System.out.println( "Resultado da resposta: " + resultadoResposta);
 
-                    if( resultadoResposta != null ) {
+                    int codStatus = Comunica.codStatus;
+                    int OK = 200;
+                    int BadRequest = 404;
+                    if( codStatus == OK || codStatus == BadRequest || codStatus == 400 ) {
                         ativo = "sim";
                     }
                 }
 
                 catch (Exception e){
-                    ativo = "nao";
-
                     System.out.println("Erro ao tentar buscar objeto no webservice: " + e.getMessage());
+                    if (separadorVirgula[0].contains("Tray") && e.getMessage().contains("400") || e.getMessage().contains("404")){
+                        ativo = "sim";
+                    } else {
+                        ativo = "nao";
+                    }
                 }
-
 
                 DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
@@ -152,6 +142,7 @@ public class ViewAplicacao extends javax.swing.JFrame     {
                     for (int i = jTable1.getRowCount() - tamanhoArquivo; i >= 0; i--)
                         model.removeRow(i);
                 }
+
                     model.addRow(
                             new Object[]{
                                     separadorVirgula[0], ativo, separadorVirgula[1]
@@ -172,7 +163,6 @@ public class ViewAplicacao extends javax.swing.JFrame     {
         }
 
     }
-
 
     public void corNaLinha(){
 
@@ -203,51 +193,6 @@ public class ViewAplicacao extends javax.swing.JFrame     {
 
         });
 
-//        DefaultTableCellRenderer coluna = new DefaultTableCellRenderer();
-//
-//        System.out.println("resultado do texto " + texto);
-//        if (textoo.equals( "sim" ) ){
-//            //coluna.setForeground(Color.BLUE);
-//            coluna.setBackground(Color.GREEN); // fundo amarelo
-//        }
-//        coluna.setBackground(Color.RED);
-//        jTable1.getColumnModel().getColumn(1).setCellRenderer(coluna);
-
-
-
-
-    }
-
-
-    public void escreverArquivo(){
-        String path = "C:\\visualfs\\verificadorservicos\\servicosAtivosTeste.txt";
-
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-
-
-
-        if (model.getRowCount() > 0) {
-            for (int i = jTable1.getRowCount() + 1; i >= 0; i--)
-                model.addRow(model.getDataVector());
-        }
-
-        try (BufferedWriter writer = new BufferedWriter( new FileWriter( path, true ) ) ) {
-
-
-            model.addRow(
-                    new Object[]{
-                            writer.append(""), writer.append("")
-                    }
-            );
-
-            writer.newLine();
-            writer.write("separadorVirgula[0]," + "separadorVirgula[1]");
-
-            System.out.println("Arquivo de texto foi escrito com sucesso!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -263,6 +208,7 @@ public class ViewAplicacao extends javax.swing.JFrame     {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnVerificacao = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -285,6 +231,9 @@ public class ViewAplicacao extends javax.swing.JFrame     {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 2, 12)); // NOI18N
+        jLabel1.setText("Verificar Disponibilidade dos Serviços");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -292,17 +241,22 @@ public class ViewAplicacao extends javax.swing.JFrame     {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVerificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnVerificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(84, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnVerificacao)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerificacao)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -366,6 +320,7 @@ public class ViewAplicacao extends javax.swing.JFrame     {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificacao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

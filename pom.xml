@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.angulosistemas</groupId>
-    <artifactId>ServicosAtivos</artifactId>
+    <artifactId>VerificadorServicos</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
