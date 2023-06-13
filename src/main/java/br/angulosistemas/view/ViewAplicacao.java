@@ -25,7 +25,7 @@ import java.util.List;
  */
 
 
-public class ViewAplicacao extends javax.swing.JFrame     {
+public class ViewAplicacao extends javax.swing.JFrame {
 
     private Comunica comunica;
     private String resultadoResposta;
@@ -78,18 +78,6 @@ public class ViewAplicacao extends javax.swing.JFrame     {
 
                 linhaLida = line;
                 separadorVirgula = linhaLida.split(",");
-
-//                if ( separadorVirgula[0].contains( "Tray" ) ) {
-//                     serverHost = "https://";
-//                } else {
-//                }
-
-//                // Cria um SSLContext com um TrustManager que não realiza verificação
-//                SSLContext sslContext = SSLContext.getInstance("TLS");
-//                sslContext.init(null, new TrustManager[]{new TrustAllManager()}, new SecureRandom());
-//
-//                // Configura a conexão HTTPS para usar o SSLContext com a verificação desabilitada
-//                HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
 
                 serverHost = "http://";
 

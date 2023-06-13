@@ -10,12 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84733e03-0a88-4288-aac7-3a0ce33cfea2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/VerificadorServicos_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +86,7 @@
       <workItem from="1686567714106" duration="29016000" />
       <workItem from="1686654668351" duration="14373000" />
       <workItem from="1686674319127" duration="50000" />
-      <workItem from="1686674435572" duration="5871000" />
+      <workItem from="1686674435572" duration="8263000" />
     </task>
     <servers />
   </component>
