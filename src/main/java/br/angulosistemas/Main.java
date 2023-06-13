@@ -21,13 +21,15 @@ public class Main {
 
         ViewAplicacao viewAplicacao = new ViewAplicacao();
 
+
+
         if (!SystemTray.isSupported()) {
             JOptionPane.showMessageDialog(null, " SystemTray não suportado pelo sistema operacional verifique a comptabilidade com o sistema ");
             System.exit(0);
         }
         /*Adicionado icone na barra de tarefas e texto de dialogo*/
 
-        trayIcon = new TrayIcon( Objects.requireNonNull(Util.getImage("comparadorIcon.png",70,45)));
+        trayIcon = new TrayIcon( Objects.requireNonNull(Util.getImage("bing.png",70,45)));
         trayIcon.setImageAutoSize(true);
         atualizarTollTipTraycon("Verificador Servicos - Angulo Sistemas");
         SystemTray systemTray = SystemTray.getSystemTray();
