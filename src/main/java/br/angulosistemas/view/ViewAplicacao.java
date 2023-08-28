@@ -5,6 +5,7 @@
 package br.angulosistemas.view;
 
 import br.angulosistemas.*;
+import br.angulosistemas.util.Properties;
 import br.angulosistemas.util.Util;
 
 import javax.swing.*;
@@ -18,10 +19,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
- * @author User
+ * @author Jonathan Vicente
  */
 
 
@@ -54,11 +56,12 @@ public class ViewAplicacao extends javax.swing.JFrame {
 
     public void carregarServicosTela(){
 
-        if (comunica == null) comunica = new Comunica();
+        if ( comunica == null )
+             comunica = new Comunica();
 
         try {
 
-            String path = "C:\\visualfs\\verificadorservicos\\servicosAtivoss.txt";
+            String path = "V:\\visualfs\\verificadorservicos\\servicosAtivos.txt";
 
             List<String> arquivo;
 
@@ -69,9 +72,11 @@ public class ViewAplicacao extends javax.swing.JFrame {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line = br.readLine();
 
-
-            Main.notificatTraycon("Verificando..","Verificando a conexão dos serviços. Aguarde...", TrayIcon.MessageType.INFO);
-            Thread.sleep(100);
+            setIconImage( Objects.requireNonNull( Util.getImagemLogo( Properties.LOGOTIPO_VERIFICADOR_SERVICOS ) ) );
+            Main.atualizarIconeTrayIcon("carregando.gif");
+            Main.notificatTraycon("Verificando...","Verificando a conexão dos serviços. Aguarde...", TrayIcon.MessageType.INFO);
+            Thread.sleep(1000*5);
+            Main.atualizarIconeTrayIcon("bing.png");
             String linhaLida = "";
             int servicosLidos = 0;
             while ( line != null ) {
@@ -101,11 +106,9 @@ public class ViewAplicacao extends javax.swing.JFrame {
                     if( codStatus == OK || codStatus == BadRequest || codStatus == 400 ) {
                         ativo = "sim";
                     }
-                }
-
-                catch (Exception e){
+                } catch (Exception e){
                     System.out.println("Erro ao tentar buscar objeto no webservice: " + e.getMessage());
-                    if (separadorVirgula[0].contains("Tray") && e.getMessage().contains("400") || e.getMessage().contains("404")){
+                    if (separadorVirgula[0].contains("Tray") && e.getMessage().contains("400") || e.getMessage().contains("404") ){
                         ativo = "sim";
                     } else {
                         ativo = "nao";
@@ -116,11 +119,11 @@ public class ViewAplicacao extends javax.swing.JFrame {
 
                 // Define o tamanho preferido da coluna "Está Ativo" como menor
                 TableColumn activeColumn = jTable1.getColumnModel().getColumn(1);
-                activeColumn.setPreferredWidth(50);
+                activeColumn.setPreferredWidth(30);
 
                 // Define tamanhos maiores para as outras colunas
                 TableColumn nameColumn = jTable1.getColumnModel().getColumn(0);
-                nameColumn.setPreferredWidth(150);
+                nameColumn.setPreferredWidth(200);
 
                 TableColumn addressColumn = jTable1.getColumnModel().getColumn(2);
                 addressColumn.setPreferredWidth(200);
@@ -142,11 +145,11 @@ public class ViewAplicacao extends javax.swing.JFrame {
                 servicosLidos++;
             }
 
-            Main.notificatTraycon("Serviços ","foi testado a conexão com " + servicosLidos + " serviços, sucesso" , TrayIcon.MessageType.INFO);
+            Main.notificatTraycon("Serviços ","Foi testado a conexão com " + servicosLidos + " serviços com sucesso" , TrayIcon.MessageType.INFO);
             corNaLinha();
 
         } catch (Exception e ) {
-
+            e.printStackTrace();
             System.out.println("Não foi possivel ler o arquivo: " + e.getMessage() );
         }
 
@@ -164,13 +167,10 @@ public class ViewAplicacao extends javax.swing.JFrame {
                 Color c = Color.WHITE;
                 texto = table.getValueAt(row,1);
 
-               // TableColumn tc = jTable1.getColumn(1);
-
-                if (texto.equals("sim") ){
+                if ( texto.equals("sim") ) {
                     c = Color.GREEN;
                    label.setBackground(c);
 
-                    //table.setSelectionForeground(Color.RED);
                 } else {
                     c = Color.RED;
                     label.setBackground(c);
@@ -213,7 +213,9 @@ public class ViewAplicacao extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         btnVerificacao.setText("Verificar ");
+
         btnVerificacao.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerificacaoActionPerformed(evt);
             }

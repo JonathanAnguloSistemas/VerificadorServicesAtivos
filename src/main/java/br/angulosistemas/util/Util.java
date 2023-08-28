@@ -1,14 +1,15 @@
 package br.angulosistemas.util;
 
-import org.apache.logging.log4j.Level;
-
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
 public interface Util {
 
-    public static Image getImage( String nomeImagem, Integer largura, Integer altura ) {
+    Object String = "";
+
+    public static Image getImage(String nomeImagem, Integer largura, Integer altura ) {
 
         final String recurso = "imagens/";
         String recursoCompleto = recurso + nomeImagem;
@@ -25,4 +26,16 @@ public interface Util {
             return null;
         }
     }
+
+    public static Image getImagemLogo(String nome_imagem ) {
+        URL image = Util.class.getClassLoader().getResource( "imagens/" + nome_imagem );
+
+        if ( image == null ) {
+            System.out.println("Imagem não existe");
+            return null;
+        }
+        else
+            return ( new ImageIcon( image, nome_imagem ) ).getImage();
+    }
+
 }

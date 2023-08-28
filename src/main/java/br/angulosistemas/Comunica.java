@@ -16,6 +16,8 @@ public class Comunica {
         private static final String TAG = Comunica.class.getName();
 
         public static int codStatus;
+
+        public static String resposta;
         public static String codStatusVerdadeiro;
 
         public Comunica() {

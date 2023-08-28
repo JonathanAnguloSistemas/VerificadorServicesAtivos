@@ -10,7 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84733e03-0a88-4288-aac7-3a0ce33cfea2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Properties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/carregando.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/VerificadorServicos_jar/VerificadorServicos.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/VerificadorServicos_jar/VerificadorServicos.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Comunica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/angulosistemas/view/ViewAplicacao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -59,6 +65,7 @@
       <recent name="C:\Users\User\Desktop\PROJETOS JAVA\ServicosAtivos\src\main\resources\imagens" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\PROJETOS JAVA\VerificadorServicos\src\main\resources\imagens" />
       <recent name="C:\Users\User\Desktop\PROJETOS JAVA\ServicosAtivos\src\main\resources\imagens" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -86,12 +93,28 @@
       <workItem from="1686567714106" duration="29016000" />
       <workItem from="1686654668351" duration="14373000" />
       <workItem from="1686674319127" duration="50000" />
-      <workItem from="1686674435572" duration="8263000" />
+      <workItem from="1686674435572" duration="12825000" />
+      <workItem from="1687270025495" duration="1237000" />
+      <workItem from="1688668108768" duration="23000" />
+      <workItem from="1691684577577" duration="7078000" />
+      <workItem from="1693221427884" duration="2135000" />
+      <workItem from="1693224097844" duration="867000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
